@@ -33,9 +33,8 @@ Grocery-Store-Application/
 ├── README.md
 ├── .gitignore
 ├── .env                 # Local configuration; never commit
-├── requirements.txt     # Python dependencies, if present
-├── <application files>  # Python source files
-└── <other project files>
+├── backened     
+└── ui
 ```
 
 The `.env` file is intended to remain local and should not be uploaded to GitHub.
