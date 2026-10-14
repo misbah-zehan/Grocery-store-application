@@ -13,6 +13,24 @@ This project demonstrates database connectivity, application development, and th
 * Organized project structure
 * Grocery store management functionality implemented in the application
 
+## Application Screenshots
+
+1. Add New Product
+
+"Add New Product" (screenshots/add_new_product.png)
+
+2. Manage Products
+
+"Manage Products" (screenshots/manage_product.png)
+
+3. Create New Order
+
+"New Order" (screenshots/new_order.png)
+
+4. Order Management
+
+"Order Management" (screenshots/order_management.png)
+
 ## Technologies Used
 
 * **Python** — Backened programming
