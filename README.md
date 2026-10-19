@@ -54,6 +54,8 @@ Grocery-Store-Application/
 The `.env` file is intended to remain local and should not be uploaded to GitHub.
 
 
-## Author
+## 👨‍💻 Author
 
-Developed as a Grocery Store Application project.
+**Misbahul Haque**
+
+Computer Science Graduate | Python Developer | Aspiring Software Developer
