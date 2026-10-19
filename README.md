@@ -16,16 +16,16 @@ This project demonstrates database connectivity, application development, and th
 ## Application Screenshots
 
 ### 1. Add New Product
-![Add New Product](screenshot/add_new_product.png)
+![Add New Product](screenshot/add_new_product1.png)
 
 ### 2. Manage Products
-![Manage Products](screenshot/manage_product.png)
+![Manage Products](screenshot/manage_products1.png)
 
 ### 3. Create New Order
-![New Order](screenshot/new_order.png)
+![New Order](screenshot/new_order1.png)
 
 ### 4. Order Management
-![Order Management](screenshot/order_management.png)
+![Order Management](screenshot/home.png)
 
 ## Technologies Used
 
