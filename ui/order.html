@@ -6,7 +6,6 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="apple-mobile-web-app-capable" content="yes"/>
-    <meta name="csrf-token" content="kmapods5wQ5L1hn7rcR9OPst7EsN0gC7SrHh3m9K"/>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,700">
     <link media="all" type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
@@ -77,7 +76,7 @@
                                     <span><b>Total</b></span>
                                 </div>
                                 <div class="col-sm-3">
-                                    <b><input id="product_grand_total" name="product_grand_total" class="product-grand-total" value="0.0"></input> Rs</b>
+                                    <b><input id="product_grand_total" name="product_grand_total" class="product-grand-total" value="0.0" readonly></input> Rs</b>
                                     <button class="btn btn-sm btn-primary pull-right" type="button" id="saveOrder">Save</button>
                                 </div>
                             </div>
@@ -93,13 +92,13 @@
                                 <select name="product" class="form-control cart-product" style="max-width: 250px"></select>
                             </div>
                             <div class="col-sm-3">
-                                <input id="product_price" name="product_price" class="product-price" value="0.0"></input>
+                                <input id="product_price" name="product_price" class="product-price" value="0.0" readonly></input>
                             </div>
                             <div class="col-sm-2">
                                 <input name="qty" type="number" min="1" placeholder="" class="form-control product-qty" value="1" style="max-width: 100px">
                             </div>
                             <div class="col-sm-3">
-                                <input id="item_total" name="item_total" class="product-total"></input><span> Rs</span>
+                                <input id="item_total" name="item_total" class="product-total" readonly></input><span> Rs</span>
                                 <button class="btn btn-sm btn-danger pull-right remove-row" type="button">Remove</button>
                             </div>
                         </div>

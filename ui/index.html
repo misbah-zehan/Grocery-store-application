@@ -2,11 +2,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Grocery Managrment</title>
+        <title>Grocery Management</title>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
         <meta name="apple-mobile-web-app-capable" content="yes"/>
-        <meta name="csrf-token" content="kmapods5wQ5L1hn7rcR9OPst7EsN0gC7SrHh3m9K"/>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:400,300,600,700">
         <link media="all" type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
@@ -42,58 +41,87 @@
 
             <div class="right content-page">
                 <div class="body content rows scroll-y">
-                    <form class="form-horizontal" action="">
-                        <div class="box-info full" id="taskFormContainer">
-                            <h2>Grocery Store Management System</h2>
-                            <div class="panel-body pt-0">
-                                <div class="row mb-4">
-                                    <div class="col-sm-12">
-                                        <a href="order.html" target="_blank" class="btn btn-sm btn-primary pull-right ml-3">
-                                            New Order
-                                        </a>
-                                        <a href="manage-product.html" target="_blank" class="btn btn-sm btn-primary pull-right">
-                                            Manage Products
-                                        </a>
+                    <div class="box-info full" id="taskFormContainer">
+                        <h2>Grocery Store Management System</h2>
+                        <div class="panel-body pt-0">
+
+                            <!-- NEW: summary cards (filled by dashboard.js) -->
+                            <div class="row mb-4">
+                                <div class="col-sm-4">
+                                    <div class="stat-card">
+                                        <div class="stat-value" id="statOrders">0</div>
+                                        <div class="stat-label">Total Orders</div>
                                     </div>
                                 </div>
-                                <table class="table table-bordered">
-                                    <thead>
-                                        <th>Date</th>
-                                        <th>Order Number</th>
-                                        <th>Customer Name</th>
-                                        <th>Total Cost</th>
-                                    </thead>
-                                    <tbody>
-
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                    </form>
-                    <div class="modal " id="userProfileModal" role="dialog" >
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-body text-center">
+                                <div class="col-sm-4">
+                                    <div class="stat-card">
+                                        <div class="stat-value" id="statSales">0.00 Rs</div>
+                                        <div class="stat-label">Total Sales</div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="stat-card">
+                                        <div class="stat-value" id="statAverage">0.00 Rs</div>
+                                        <div class="stat-label">Average Order Value</div>
+                                    </div>
                                 </div>
                             </div>
+
+                            <div class="row mb-4">
+                                <div class="col-sm-12">
+                                    <a href="order.html" target="_blank" class="btn btn-sm btn-primary pull-right ml-3">
+                                        New Order
+                                    </a>
+                                    <a href="manage-product.html" target="_blank" class="btn btn-sm btn-primary pull-right">
+                                        Manage Products
+                                    </a>
+                                </div>
+                            </div>
+                            <table class="table table-bordered" id="ordersTable">
+                                <thead>
+                                    <th>Date</th>
+                                    <th>Order Number</th>
+                                    <th>Customer Name</th>
+                                    <th>Total Cost</th>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="modal fade-scale" id="myModal" role="dialog" data-backdrop="static">
-                <div class="modal-dialog modal-lg">
+            <!-- NEW: popup that shows the items of one order (opened by clicking a row) -->
+            <div class="modal fade-scale" id="orderDetailsModal" role="dialog">
+                <div class="modal-dialog">
                     <div class="modal-content">
-                        <div class="modal-body text-center">
-                            <img src="https://demo.test.cloint.com/assets/images/spinner.gif" width="40" style="margin: 60px auto;" alt="">
+                        <div class="modal-header">
+                            <h4 class="modal-title" id="orderDetailsTitle">Order Details</h4>
+                        </div>
+                        <div class="modal-body">
+                            <table class="table table-bordered" id="orderItems">
+                                <thead>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Price</th>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </body>
-    
+
     <script src="js/packages/jquery.min.js"></script>
     <script src="js/custom/common.js"></script>
     <script src="js/custom/dashboard.js"></script>
+    <script src="js/packages/bootstrap.min.js"></script>
 </html>

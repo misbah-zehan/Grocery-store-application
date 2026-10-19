@@ -7,10 +7,11 @@ $(function () {
         if(response) {
             var options = '<option value="">--Select--</option>';
             $.each(response, function(index, product) {
-                options += '<option value="'+ product.product_id +'">'+ product.product_name +'</option>';
+                options += '<option value="'+ product.product_id +'">'+ escapeHtml(product.product_name) +'</option>';
                 productPrices[product.product_id] = product.price_per_unit;
             });
             $(".product-box").find("select").empty().html(options);
+            $("#addMoreButton").click();   // NEW: start with one product row already on the page
         }
     });
 });
@@ -41,7 +42,33 @@ $(document).on("change", ".product-qty", function (e){
     calculateValue();
 });
 
+// NEW: returns an error message if the order is not ready to save, otherwise ''
+function validateOrder() {
+    if ($.trim($("#customerName").val()) === '') {
+        return 'Please enter the customer name';
+    }
+    var rows = $("#itemsInOrder .product-item");
+    if (rows.length === 0) {
+        return 'Add at least one product';
+    }
+    var message = '';
+    rows.each(function () {
+        if ($(this).find('.cart-product').val() === '') {
+            message = 'Please select a product in every row';
+        } else if (!(parseFloat($(this).find('.product-qty').val()) > 0)) {
+            message = 'Quantity must be at least 1';
+        }
+    });
+    return message;
+}
+
 $("#saveOrder").on("click", function(){
+    var errorMessage = validateOrder();
+    if (errorMessage) {
+        showToast(errorMessage, 'error');
+        return;
+    }
+
     var formData = $("form").serializeArray();
     var requestPayload = {
         customer_name: null,
@@ -55,7 +82,7 @@ $("#saveOrder").on("click", function(){
 
         switch(element.name) {
             case 'customerName':
-                requestPayload.customer_name = element.value;
+                requestPayload.customer_name = $.trim(element.value);
                 break;
             case 'product_grand_total':
                 requestPayload.grand_total = element.value;
@@ -80,5 +107,5 @@ $("#saveOrder").on("click", function(){
     }
     callApi("POST", orderSaveApiUrl, {
         'data': JSON.stringify(requestPayload)
-    });
+    }, 'Order saved');
 });
