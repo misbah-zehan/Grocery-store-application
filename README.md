@@ -46,7 +46,7 @@ The project structure may vary depending on the files in your local repository.
 Grocery-Store-Application/
 ├── README.md
 ├── .gitignore
-├── .env                 # Local configuration; never commit
+├── .env                 
 ├── backened     
 └── ui
 ```
